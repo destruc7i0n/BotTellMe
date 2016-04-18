@@ -2,7 +2,7 @@
 A Twitter bot that will give answers to a query that is sent to the bot via Twitter
 
 # Demo
-There should be a demo running at [@bottellme](https://twitter.com/bottellme)
+There should be a demo running at [@bottellme](https://twitter.com/bottellme), if there isn't, tweet me [@TheDestruc7i0n](https://twitter.com/thedestruc7i0n)
 
 ## Installation and usage
 
