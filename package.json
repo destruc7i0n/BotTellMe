@@ -1,0 +1,37 @@
+{
+  "name": "bottellme",
+  "version": "1.0.0",
+  "description": "A Twitter bot that will give answers to a query that is sent to the bot via Twitter.",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "lint": "jshint *.js",
+    "test": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/destruc7i0n/BotTellMe.git"
+  },
+  "keywords": [
+    "Twitter",
+    "Bot",
+    "WolframAlpha",
+    "DuckDuckGo"
+  ],
+  "author": "destruc7i0n",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/destruc7i0n/BotTellMe/issues"
+  },
+  "homepage": "https://github.com/destruc7i0n/BotTellMe#readme",
+  "dependencies": {
+    "lodash": "^4.0.0",
+    "request": "^2.67.0",
+    "twitter": "^1.2.5",
+    "wolfram-alpha": "^0.3.0",
+    "vgd": "^1.1.3"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.1"
+  }
+}
