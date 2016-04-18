@@ -1,6 +1,9 @@
 # BotTellMe
 A Twitter bot that will give answers to a query that is sent to the bot via Twitter
 
+# Demo
+There should be a demo running at [@bottellme](https://twitter.com/bottellme)
+
 ## Installation and usage
 
 Clone repository onto a server, edit ```config.json``` (see below for more info) and change any options, and then, in the repository folder:
