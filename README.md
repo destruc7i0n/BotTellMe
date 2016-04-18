@@ -1,13 +1,36 @@
 # BotTellMe
 A Twitter bot that will give answers to a query that is sent to the bot via Twitter
 
-##Main Page
-https://twitter.com/BotTellMe/
-<br />
-<p align="center">
-  <a href="http://j.mp/forDO"><img src="https://www.digitalocean.com/assets/images/logos-badges/badge-a-color-b22ef34f.png"/></a>
-</p>
-<br />
-<p align="center">
-  <a href="https://gratipay.com/~destruc7i0n/"><img src="https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.png"/></a>
-</p>
+## Installation and usage
+
+Clone repository onto a server, edit ```config.json``` (see below for more info) and change any options, and then, in the repository folder:
+```sh
+$ npm install
+$ npm start
+```
+
+### Configuration
+```js
+{
+    "USERAGENT": "Bot, Tell Me...", /* your usergagent (will be sent to duckduckgo) */
+    
+    "TWITTER_CONSUMER_KEY": "xxx", /* consumer key */
+    "TWITTER_CONSUMER_SECRET": "xxx", /* consumer secret key */
+    "TWITTER_ACCESS_KEY": "xxx", /* access key */
+    "TWITTER_ACCESS_SECRET": "xxx", /* secret access key */
+    "TWITTER_HANDLE": "@bottellme", /* your twitter handle */
+    "TWITTER_ID": "xxx", /* twitter id (find here http://mytwitterid.com/) */
+    
+    "WOLFRAM_API_ID": "xxx" /* wolfram alpha key */
+}
+```
+
+## Upcoming
+None.
+
+## Suggestions
+If you have any suggestions or feature requests, feel free to add an issue and I will take a look and possibly add it to the "Upcoming" section!
+
+## License
+
+MIT. See `LICENSE`.
