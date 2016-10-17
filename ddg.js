@@ -1,22 +1,22 @@
-var c = require("./config.json");
-var _ = require("lodash");
-var request = require("request");
+import c from "./config.json";
+import _ from "lodash";
+import request from "request";
 
 function determine(data,priority,web_fallback) {
     
-    var response = "";
+    let response = "";
     
-    for (var p in priority) {
+    for (let p in priority) {
         p = priority[p];
-        var ps = p.split(".");
-        var type = ps[0];
+        const ps = p.split(".");
+        const type = ps[0];
         if(ps.length > 1) {
             var index = ps[1];
         } else {
             var index = null;
         }
 
-        var result = data[type];
+        let result = data[type];
         if (index) {
             if (result.length > index) { result = result[index]; } else { result=null; }
         } 
@@ -25,7 +25,7 @@ function determine(data,priority,web_fallback) {
         
         if (result.Text) { response = result.Text; }
         if (result.Text && "url" in result && urls) { 
-            if (result.url){ response += " ("+result.url+")"; }
+            if (result.url){ response += ` (${result.url})`; }
         }
         if (response){ break; }
     }    
@@ -46,16 +46,16 @@ function determine(data,priority,web_fallback) {
     return response;    
 }
 
-exports.query = function(ops, cb) {
+export function query(ops, cb) {
 
-    var defaultops = {
+    const defaultops = {
         q: "", 
         web_fallback: true, 
         priority: ["Answer", "Abstract", "RelatedTopics.0", "Definition"], 
         urls: true
-    }
+    };
     
-    var ddg_options = {
+    const ddg_options = {
         "q": ops["q"],
         "t": c.USERAGENT,
         "format": "json",
@@ -66,20 +66,20 @@ exports.query = function(ops, cb) {
     };    
     
     var ops = _.merge({}, defaultops, ops);
-    var out = new Array();
+    let out = new Array();
     
-    var q = ops["q"];
-    var web_fallback = ops["web_fallback"];
-    var priority = ops["priority"];
-    var urls = ops["urls"];  
+    const q = ops["q"];
+    const web_fallback = ops["web_fallback"];
+    const priority = ops["priority"];
+    const urls = ops["urls"];  
     
     for(key in ddg_options) {
-        out.push(key + "=" + encodeURIComponent(ddg_options[key]));
+        out.push(`${key}=${encodeURIComponent(ddg_options[key])}`);
     }
     
     out = out.join("&");
     
-	request("https://api.duckduckgo.com/?"+out, function(err, response, body){
+	request(`https://api.duckduckgo.com/?${out}`, (err, response, body) => {
 		if (err) console.log(err);
 		if (response.statusCode == 200) {
 			
@@ -89,7 +89,7 @@ exports.query = function(ops, cb) {
 		} else if (response.statusCode == 500) {
 			console.log("ddg error: server error")
 		} else {
-			console.log("ddg error: problem with request code: "+response.statusCode)
+			console.log(`ddg error: problem with request code: ${response.statusCode}`)
 		}
 	});    
 }
